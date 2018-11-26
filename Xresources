@@ -1,0 +1,20 @@
+#xterm*font:     *-fixed-*-*-*-18-*
+xterm*faceName: Luxi Mono
+xterm*faceSize: 18
+xterm*geometry: 127x37
+
+XTerm.vt100.scrollBar: true
+XTerm.vt100.scrollbar.width: 8
+
+xterm*saveLines: 12000
+
+! right hand side scrollbar...
+xterm*rightScrollBar: true
+xterm*ScrollBar: true
+
+! stop output to terminal from jumping down to bottom of scroll again
+xterm*scrollTtyOutput: false
+
+XTerm.vt100.translations: #override \n\
+  Ctrl <Key> minus: smaller-vt-font() \n\
+  Ctrl <Key> plus: larger-vt-font()
