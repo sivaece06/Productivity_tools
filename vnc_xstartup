@@ -1,0 +1,39 @@
+#!/bin/sh
+if [ `/bin/uname -s` = "Linux" ] ; then
+PATH=$PATH:/usr/cisco/bin:/usr/X11R6/bin
+    export PATH
+    OSVER=""
+# Is it RH7.x? If so, use KDE. Otherwise use GNOME.
+  OSVER=`/bin/cat /etc/system-profile | grep 'RedHat-7'`
+  if [ "$OSVER" != "" ] ; then
+       OSVER=RH7
+        WM='/usr/bin/startkde'
+  else
+        WM='/usr/bin/gnome-session'
+  fi
+fi
+
+if [ ! -x $WM ] ; then
+    # failsafe window manager choice
+    WM=twm
+#    WM='/usr/bin/gnome-session --failsafe'
+#    WM='/usr/bin/gnome-session'
+fi
+
+if [ -r $HOME/.Xdefaults ] ; then
+    xrdb -merge $HOME/.Xdefaults
+fi
+
+if [ -x /usr/bin/vncconfig ] ; then
+    /usr/bin/vncconfig -nowin &
+elif [ -x /usr/xxxxx/bin/autocutsel ] ; then
+    /usr/xxxxx/bin/autocutsel &
+fi
+
+if [ -x /usr/bin/vmware-toolbox ] ; then
+    /usr/bin/vmware-toolbox --iconify &
+fi
+
+export XKL_XMODMAP_DISABLE=1
+xhost -
+exec $WM
