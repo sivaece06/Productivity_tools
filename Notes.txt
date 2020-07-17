@@ -1,0 +1,19 @@
+$ diff -ENwbur --show-c-function <base file> <changed file>
+
+-r, --recursive
+When comparing directories, recursively compare any subdirectories found
+
+-b, --ignore-space-change
+Ignore changes in amount of white space
+
+-B, --ignore-blank-lines
+Ignore changes that just insert or delete blank lines.
+
+-u
+Use the unified output format, showing three lines of context
+
+-w, --ignore-all-space
+Ignore white space when comparing lines
+
+-N, --new-file
+If one file is missing, treat it as present but empty. 
