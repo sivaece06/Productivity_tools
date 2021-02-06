@@ -17,3 +17,25 @@ $ diff -ENwbur --show-c-function <base file> <changed file>
 
         -N, --new-file
         If one file is missing, treat it as present but empty. 
+        
+        
+PID of running process:
+-----------------------
+pid=$(pidof process_name)
+echo $pid
+
+Memory High water mark:
+-----------------------
+MEM=$(cat /proc/$pid/status | grep -A 1 VmHWM)
+
+Calculate the time from epoch time:
+------------------------------------
+calculating the time in seconds since epoch time or Unix time.
+
+how many seconds have elapsed since 1 January 1970 00:00:00 UTC to the present time.
+
+$ date +%s
+
+
+
+
