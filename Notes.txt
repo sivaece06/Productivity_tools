@@ -37,5 +37,30 @@ how many seconds have elapsed since 1 January 1970 00:00:00 UTC to the present t
 $ date +%s
 
 
+Change Priority:
+================
 
+chrt -f -p 99 <PID>
+chrt -o -p 0 <PID>
+
+[node0:~]$chrt -p 8595
+pid 8595's current scheduling policy: SCHED_OTHER
+pid 8595's current scheduling priority: 0
+[node0:~]$chrt -f -p 99 8595
+[node00:~]$chrt -p 8595
+pid 8595's current scheduling policy: SCHED_FIFO
+pid 8595's current scheduling priority: 99
+[node0:~]$chrt -m
+SCHED_OTHER min/max priority    : 0/0
+SCHED_FIFO min/max priority     : 1/99
+SCHED_RR min/max priority       : 1/99
+SCHED_BATCH min/max priority    : 0/0
+SCHED_IDLE min/max priority     : 0/0
+[node0:~]$chrt -o -p 8595 0
+chrt: failed to set pid 0's policy: Invalid argument
+[node0:~]$chrt -o -p 0 8595
+[node0:~]$chrt -p 8595
+pid 8595's current scheduling policy: SCHED_OTHER
+pid 8595's current scheduling priority: 0
+[node0:~]$
 
