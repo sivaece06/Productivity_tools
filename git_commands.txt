@@ -1,0 +1,46 @@
+Creating GIT branches happens in only local repository. Creating branches in remote repository happens 
+only when publishing an existing local branch.
+
+# To create new local branch from current revision
+  $git branch <branch name>
+ 
+# To create new local branch from particular revision
+  $git branch <branch name> <revision hash>
+
+# To create remote repository from local branch
+  $git push -u origin <local branch name>
+  
+# To switch to new branch
+  $git checkout <branch name>    OR      $git switch <branch name>
+ 
+# To rename exisiting local branch
+  $git branch -m <current name> <new name>
+
+# To rename remote repository, we need to delete it and publish the renamed local branch.
+  $git push origin --delete <old name>
+  
+  $git push -u origin <new name>
+  
+ # To track remote branch
+  $git branch --track <local branch> <remote branch>         OR $git checkout --track <base/origin branch>
+  
+ # To download new commits from remote branch to local branch
+  $git pull
+  
+ # To publish local commits to remote branch
+  $git push
+  
+ # To delete a local branch
+  $git branch -d <branch name>
+  
+ # To merge branches
+ # Integrating changes from anther branch into your current local HEAD branch
+   $git switch main
+   
+   $git merge <branch name>
+   
+# An alternate way to integrate changes from another branch into your current local HEAD branch
+   $git rebase main
+   
+# To compare branches
+  $git log <branch1>..<branch2>
