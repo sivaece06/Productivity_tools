@@ -64,3 +64,14 @@ pid 8595's current scheduling policy: SCHED_OTHER
 pid 8595's current scheduling priority: 0
 [node0:~]$
 
+prlimit:
+========
+get and set process resource limits
+
+pmap:
+====
+reports the memory map of process(es).
+
+lsof:
+====
+list of open files. network connections are files. so we can check ipv4, ipv6 connections as well.
